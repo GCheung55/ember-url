@@ -18,10 +18,11 @@ module.exports = {
       '-headless'
     ],
     Chrome: [
+      process.env.TRAVIS ? '--no-sandbox' : null,
       '--disable-gpu',
       '--headless',
       '--remote-debugging-port=9222',
       '--window-size=1440,900'
-    ]
+    ].filter(Boolean)
   }
 };
